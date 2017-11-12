@@ -1,0 +1,14 @@
+#! /bin/bash
+
+
+count=0
+
+for x in `cat ./word.md | sort -R`; do
+    if [ `expr $count % 2` == 0 ];then
+        printf "\e[34m ${x} \e[m"
+    else
+        printf "\e[1;31m ${x} \e[m"
+    fi
+    count=`expr $count + 1`
+    read
+done;
